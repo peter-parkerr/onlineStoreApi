@@ -23,6 +23,8 @@ class AdminController extends Controller
             ->join('shops', 'shops.sellerId', '=', 'users.id')
             ->join('products', 'products.shopId', '=', 'shops.id')
             ->where('users.id', $id)
+            ->where('shops.status', 1)
+            ->where('products.status', 1)
             ->get();
 
         return response()->json($result);

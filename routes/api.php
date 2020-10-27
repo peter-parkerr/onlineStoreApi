@@ -33,11 +33,16 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('products/{product}', 'ProductController@update');
     Route::delete('products/{product}', 'ProductController@delete');
 
-    /********** Admin Routes********/
+
+
+});
+/********** Admin Routes********/
+Route::group(['middleware' => ['auth:api','admin:api']], function (){
     Route::put('approveSeller/{seller}', 'AdminController@approveSeller');
     Route::put('rejectSeller/{seller}', 'AdminController@rejectSeller');
     Route::put('approveShop/{shop}', 'AdminController@approveShop');
     Route::put('rejectShop/{shop}', 'AdminController@rejectShop');
     Route::put('approveProduct/{product}', 'AdminController@approveProduct');
     Route::put('rejectProduct/{product}', 'AdminController@rejectProduct');
+    Route::get('getSellerDetails/{seller}', 'AdminController@show');
 });
