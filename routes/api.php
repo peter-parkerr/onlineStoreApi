@@ -35,4 +35,9 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     /********** Admin Routes********/
     Route::put('approveSeller/{seller}', 'AdminController@approveSeller');
+    Route::put('rejectSeller/{seller}', 'AdminController@rejectSeller');
+    Route::put('approveShop/{shop}', 'AdminController@approveShop');
+    Route::put('rejectShop/{shop}', 'AdminController@rejectShop');
+    Route::put('approveProduct/{product}', 'AdminController@approveProduct');
+    Route::put('rejectProduct/{product}', 'AdminController@rejectProduct');
 });
